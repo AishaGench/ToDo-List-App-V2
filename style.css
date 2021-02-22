@@ -1,0 +1,11 @@
+#title{
+    font-size: 24px;
+    color:chocolate
+}
+.description{
+    font-style:italic;
+}
+#todo_list li:hover{
+   text-decoration:line-through; 
+cursor:pointer;
+}

@@ -6,5 +6,8 @@ function addItem() {
 
   const listItem = document.createElement('li');
   listItem.innerHTML = inputValue;
+  listItem.onclick = function () {
+    ulList.removeChild(listItem);
+  }
   ulList.appendChild(listItem)
 }

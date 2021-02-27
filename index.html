@@ -1,34 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>ToDo List App v.2</title>
-
-    <!-- Internal -->
-    <style> 
-    </style>
-
-    <!-- External -->
+    <title>Todo List App v.2</title>
     <link rel="stylesheet" href="style.css">
-    
-</head>
-<body>
-    <h1 id="title">TODo List</h1>
+  </head>
+  <body>
+    <h1 id="title">ToDo List</h1>
     <p class="description">Enter your item and click add.</p>
-    <p class="description">Your item will be in the list.</p>
 
     <input type="text" id="todo_input" name="todo_input">
     <button type="button" onclick="addItem()">Add</button>
-    <!-- <button>Remove</button>  -->
+
     <ul id="todo_list">
-        <!-- <li onclick="removeItem(this)">Tidy your room</li>
-        <li onclick="removeItem(this)">Have your breakfast</li>
-        <li onclick="removeItem(this)">Hangout with folks</li> -->
+      
     </ul>
 
-    <script src="script.js"></script>
-</body>
+    <script src="local-storage.js"></script>
+  </body>
 </html>

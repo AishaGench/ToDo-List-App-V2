@@ -4,7 +4,7 @@ localStorage.removeItem('myCat'); //remove by one by
 localStorage.clear(); //removes everthing inside of local storage
 alert(myCat); */
 
-const todoItems = [];
+let todoItems = [];
 
 function addItem(){ //it is declera function
     const inputBox = document.getElementById('todo_input');
@@ -16,19 +16,27 @@ function addItem(){ //it is declera function
 
 function getItem() {
     //const itemsToList = localStorage.getItem('todoItems').split(',');
-    const itemsToList = localStorage.getItem('todoItems') ?localStorage.getItem('todoItems').split(',') :[];
+    todoItems = localStorage.getItem('todoItems') ?localStorage.getItem('todoItems').split(',') :[];
     document.getElementById('todo_list').innerHTML ='';
 
-    itemsToList.forEach((item) => {
+    todoItems.forEach((item) => {
       document.getElementById('todo_list').innerHTML += `<li onclick="removeItem(this)">${item}</li>`;
     })
 }
 
 
-function removeItem(item){
-item.remove();
+function removeItem(item) {
+  const filteredArray = todoItems.filter(element => element !== item.innerHTML)
+  localStorage.setItem('todoItems', filteredArray);
+  getItem();
 }
+
 getItem()
+
+// Filter out the item to remove
+// Assign filtered array to a variable
+// Store new filtered array variable in localStorage
+
 
 
 

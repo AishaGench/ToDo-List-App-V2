@@ -1,50 +1,29 @@
-// const ulList = document.querySelector('ul');
-/* const ulList = document.getElementById('todo_list');
+let todoItems = [];
 
 function addItem() {
-  const inputValue = document.getElementById('todo_input').value;
+  const inputBox = document.getElementById('todo_input');
+  todoItems.push(inputBox.value);
+  localStorage.setItem('todoItems', todoItems);
+  getItem();
+}
 
-  const listItem = document.createElement('li');
-  listItem.innerHTML = inputValue;
-  listItem.onclick = function () {
-    ulList.removeChild(listItem);
-  }
-  ulList.appendChild(listItem)
-} */
-const ulList =  document.getElementById("quote_list");
-​
-function addItem (){
-    const inputValuePerson = document.getElementById('person_name').value;
-    const inputValueText = document.getElementById('famous_quote').value;
+function getItem() {
+  todoItems = localStorage.getItem('todoItems') ? localStorage.getItem('todoItems').split(',') : [];
+  document.getElementById('todo_list').innerHTML = '';
+  todoItems.forEach((item) => {
+    // document.getElementById('todo_list').innerHTML += `<li onclick="removeItem(this)">${item}</li>`;
     const listItem = document.createElement('li');
-    listItem.innerHTML = `${inputValuePerson} - <em>${inputValueText} </em>`
-    listItem.onclick = function () {
-                ulList.removeChild(listItem)
-                
-          }
-    ulList.appendChild(listItem)
-    
+    listItem.innerHTML = item;
+    listItem.addEventListener('click', removeItem);
+    document.getElementById('todo_list').appendChild(listItem);
+  })
 }
 
-const addQuote = () => {
-  let inputPerson = document.getElementById("person").value;
-  let inputQuote = document.getElementById("quote").value;
-  
-  if(inputPerson && inputQuote){
-      let item = document.createElement("li");
-      item.innerHTML =`"${inputQuote}" -<em>${inputPerson}</em>`;
-​
-      item.onclick = () => {
-       removeQuote(item)  
-      };
-​
-      document.getElementById("myList").appendChild(item);
-      document.getElementById("person").value= "";
-      document.getElementById("quote").value= "";
-  } else {
-      alert("Enter a Person and Quote!")
-  }
+function removeItem(e) {
+  // console.log(e.target.innerHTML)
+  const filteredArray = todoItems.filter(element => element !== e.target.innerHTML)
+  localStorage.setItem('todoItems', filteredArray);
+  getItem();
 }
-const removeQuote = (item) => {
-  document.getElementById("myList").removeChild(item)
-}
+
+getItem();

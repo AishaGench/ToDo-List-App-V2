@@ -1,12 +1,12 @@
 /* localStorage.setItem('myCat', 'Minosh'); //Setting value
-const myCat = localStorage.getItem('myCat'); //Geting value
+const myCat = localStorage.getItem('myCat'); //Getting value
 localStorage.removeItem('myCat'); //remove by one by
-localStorage.clear(); //removes everthing inside of local storage
+localStorage.clear(); //removes everything inside of local storage
 alert(myCat); */
 
 let todoItems = [];
 
-function addItem(){ //it is declera function
+function addItem(){ //it is declare function
     const inputBox = document.getElementById('todo_input');
     todoItems.push(inputBox.value);
     localStorage.setItem('todoItems', todoItems);
@@ -53,9 +53,9 @@ console.log(localStorage.getItem('todoItems')) */
 // alert(myCat); //Getting value
 
 /* const inputBox = document.getElementById('todo_input');
-// console.log(inputBox.id); //id yi gosterir
-// console.log(inputBox.name); // ismini gosterir
-// console.log(inputBox.type); // type gosterir
+// console.log(inputBox.id); 
+// console.log(inputBox.name); 
+// console.log(inputBox.type);  
 
 console.log(inputBox) */
 
